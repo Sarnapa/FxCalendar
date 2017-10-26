@@ -10,9 +10,11 @@ import javafx.scene.Scene;
 
 
 
-public class Main extends Application {
+public class Main extends Application 
+{
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage) 
+	{
 		try 
 		{
 		    Parent root = FXMLLoader.load(getClass()
@@ -32,7 +34,8 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		launch(args);
 	}
 

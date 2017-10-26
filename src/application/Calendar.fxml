@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="660.0" prefWidth="1250.0" styleClass="root" stylesheets="@Calendar.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="660.0" prefWidth="1250.0" styleClass="root" stylesheets="@Calendar.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CalendarController">
    <left>
-      <GridPane maxWidth="100.0" minWidth="100.0" prefWidth="100.0">
+      <GridPane fx:id="leftWeeksPanel" maxWidth="100.0" minWidth="100.0" prefWidth="100.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -44,7 +44,7 @@
       </GridPane>
    </left>
    <right>
-      <GridPane maxWidth="100.0" minWidth="100.0" prefWidth="100.0">
+      <GridPane fx:id="rightWeeksPanel" maxWidth="100.0" minWidth="100.0" prefWidth="100.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -75,7 +75,7 @@
       </GridPane>
    </right>
    <center>
-      <GridPane maxWidth="1.7976931348623157E308" minWidth="425.0" prefWidth="425.0" BorderPane.alignment="CENTER">
+      <GridPane fx:id="calendarGrid" maxWidth="1.7976931348623157E308" minWidth="425.0" prefWidth="425.0" BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -296,7 +296,7 @@
          <children>
             <StackPane maxHeight="30.0" maxWidth="100.0" minHeight="30.0" minWidth="100.0" prefHeight="30.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" styleClass="weekButton" stylesheets="@Calendar.css" text="Prev">
+                  <Button fx:id="prevUpButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="30.0" mnemonicParsing="false" onAction="#prevWeek" prefHeight="30.0" styleClass="weekButton" stylesheets="@Calendar.css" text="Prev">
                      <StackPane.margin>
                         <Insets bottom="2.0" right="2.0" />
                      </StackPane.margin></Button>
@@ -354,7 +354,7 @@
             </GridPane>
             <StackPane maxHeight="30.0" maxWidth="100.0" minHeight="30.0" minWidth="100.0" prefHeight="30.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="weekButton" stylesheets="@Calendar.css" text="Next">
+                  <Button fx:id="nextUpButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#nextWeek" styleClass="weekButton" stylesheets="@Calendar.css" text="Next">
                      <StackPane.margin>
                         <Insets bottom="2.0" />
                      </StackPane.margin></Button>
@@ -371,7 +371,7 @@
          <children>
             <StackPane maxHeight="30.0" maxWidth="100.0" minHeight="30.0" minWidth="100.0" prefHeight="30.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" styleClass="weekButton" stylesheets="@Calendar.css" text="Prev">
+                  <Button fx:id="prevBottomButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="30.0" mnemonicParsing="false" onAction="#prevWeek" prefHeight="30.0" styleClass="weekButton" stylesheets="@Calendar.css" text="Prev">
                      <StackPane.margin>
                         <Insets right="2.0" />
                      </StackPane.margin></Button>
@@ -438,7 +438,7 @@
             </GridPane>
             <StackPane maxHeight="30.0" maxWidth="100.0" minHeight="30.0" minWidth="100.0" prefHeight="30.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" styleClass="weekButton" stylesheets="@Calendar.css" text="Next" />
+                  <Button fx:id="nextBottomButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="30.0" mnemonicParsing="false" onAction="#nextWeek" prefHeight="30.0" styleClass="weekButton" stylesheets="@Calendar.css" text="Next" />
                </children>
             </StackPane>
          </children>
