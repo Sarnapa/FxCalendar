@@ -1,1 +1,45 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.root{
+	-fx-font-family: "Times New Roman";
+	-fx-font-size: 14px;
+}
+
+.weekButton{
+	-fx-text-fill: #000066;
+	-fx-background-color: #CCFFFF;
+	-fx-border-color: lightgray;
+    -fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 3px;
+}
+
+.weekButton:hover{
+	-fx-background-color: #009999;
+	-fx-border-color: darkgray;
+}
+
+.weekButton:pressed{
+	-fx-background-color: #006666;
+	-fx-border-color: black;
+}
+
+.calendarHeaderCell{
+	-fx-text-fill: #000066;
+	-fx-alignment: center;
+	-fx-background-color: #AAAAFF;
+	-fx-border-color: lightgray;
+    -fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 3px;
+}
+
+.dayCell{
+	
+}
+
+.date{
+	
+}
+
+.today{
+}
+}

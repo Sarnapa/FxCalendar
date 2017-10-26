@@ -18,10 +18,12 @@ public class Main extends Application {
 		    Parent root = FXMLLoader.load(getClass()
                     .getResource("Calendar.fxml"));
 			Scene scene = new Scene(root);
-			//scene.getStylesheets().add(getClass()
-			 //.getResource("fxcalendar.css").toExternalForm());
+			scene.getStylesheets().add(getClass().
+					getResource("Calendar.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Scene Buildered");
+			primaryStage.setTitle("Calendar");
+			primaryStage.setMinWidth(625);
+			primaryStage.setMinHeight(350);
 			primaryStage.show();
 		} 
 		catch(Exception e) 
