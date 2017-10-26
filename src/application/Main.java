@@ -23,7 +23,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Calendar");
 			primaryStage.setMinWidth(625);
-			primaryStage.setMinHeight(350);
+			primaryStage.setMinHeight(360);
 			primaryStage.show();
 		} 
 		catch(Exception e) 
