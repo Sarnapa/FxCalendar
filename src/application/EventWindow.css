@@ -1,0 +1,18 @@
+.root{
+	-fx-font-family: "Times New Roman";
+	-fx-font-size: 14px;
+	-fx-padding: 5px;
+}
+
+.cell{
+	-fx-padding: 0px 0px 5px 0px;
+    -fx-border-insets: 0px 0px 5px 0px;
+    -fx-background-insets: 0px 0px 5px 0px;
+}
+
+.label{
+	-fx-padding: 0px 0px 2px 0px;
+    -fx-border-insets: 0px 0px 2px 0px;
+    -fx-background-insets: 0px 0px 2px 0px;	
+}
+

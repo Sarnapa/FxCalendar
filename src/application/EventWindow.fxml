@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane maxHeight="250.0" minHeight="250.0" prefHeight="250.0" prefWidth="400.0" styleClass="root" stylesheets="@EventWindow.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EventWindowController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="cell" stylesheets="@EventWindow.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" stylesheets="@EventWindow.css" text="Pass event title:" VBox.vgrow="ALWAYS" />
+            <TextField fx:id="eventTitleTextField" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="cell" stylesheets="@EventWindow.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+         <children>
+            <Label maxWidth="1.7976931348623157E308" stylesheets="@EventWindow.css" text="Pass start time:" VBox.vgrow="ALWAYS" />
+            <TextField fx:id="startTimeTextField" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="cell" stylesheets="@EventWindow.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+         <children>
+            <Label stylesheets="@EventWindow.css" text="Pass end time:" VBox.vgrow="ALWAYS" />
+            <TextField fx:id="endTimeTextField" VBox.vgrow="ALWAYS" />
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </VBox>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+        <buttons>
+          <Button fx:id="removeEventButton" mnemonicParsing="false" text="Remove event" />
+            <Button fx:id="addEventButton" mnemonicParsing="false" text="Add event" />
+        </buttons>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </ButtonBar>
+   </children>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+</GridPane>

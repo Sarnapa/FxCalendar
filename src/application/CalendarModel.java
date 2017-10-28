@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CalendarModel 
 {
@@ -78,7 +79,6 @@ public class CalendarModel
 	        out.writeObject(eventsList);
 	        out.close();
 	        fileOut.close();
-	        System.out.println("Liczba eventow: " + eventsList.size());
 	    }
 		catch (FileNotFoundException e) 
 		{
@@ -90,13 +90,18 @@ public class CalendarModel
 		}
 	}
 	
-	void addEvent(EventModel event)
+	public List<EventModel> getEvents(LocalDate date)
+	{
+		return eventsList.stream().filter(e -> date.isEqual(e.getDay())).collect(Collectors.toList());
+	}
+	
+	public void addEvent(EventModel event)
 	{
 		eventsList.add(event);
 		writeToSource();
 	}
 	
-	void removeEvent(EventModel event)
+	public void removeEvent(EventModel event)
 	{
 		eventsList.remove(event);
 		writeToSource();
