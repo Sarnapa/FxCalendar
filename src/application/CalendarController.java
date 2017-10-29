@@ -2,7 +2,6 @@ package application;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.temporal.WeekFields;
 import java.util.List;
 import java.util.Locale;
@@ -20,7 +19,6 @@ public class CalendarController
 {
 	private CalendarModel calendarModel;
 	private EventWindowController eventWindowController;
-	private boolean isEventWindow = false;
 	
 	@FXML
 	private GridPane leftWeeksPanel;
@@ -33,11 +31,6 @@ public class CalendarController
 	public CalendarController()
 	{
 		calendarModel = new CalendarModel();
-		/*calendarModel.addEvent(new EventModel(LocalDate.now().minusDays(1), LocalTime.MIDNIGHT, LocalTime.NOON, "xD1"));
-		calendarModel.addEvent(new EventModel(LocalDate.now().minusDays(1), LocalTime.MIDNIGHT, LocalTime.NOON, "xD2"));
-		calendarModel.addEvent(new EventModel(LocalDate.now().minusDays(1), LocalTime.MIDNIGHT, LocalTime.NOON, "xD3"));
-		calendarModel.addEvent(new EventModel(LocalDate.now().minusDays(1), LocalTime.MIDNIGHT, LocalTime.NOON, "xD4"));
-		calendarModel.addEvent(new EventModel(LocalDate.now().minusDays(1), LocalTime.MIDNIGHT, LocalTime.NOON, "xDxDxDxDxDxDxDxD"));*/
 	} 
 	
 	@FXML
@@ -80,13 +73,13 @@ public class CalendarController
 				eventWindowController = EventWindowLoader.getController();
 				eventWindowController.setCalendarModel(calendarModel);
 				eventWindowController.init(root);
-				eventWindowController.loadEventData(event, currentDate);
+				eventWindowController.loadEventData(event, this, currentDate);
 				eventWindowController.showWindow();
 			}
 		});
 	}
 	
-	private void loadView()
+	public void loadView()
 	{
 		calendarModel.setToday(LocalDate.now());
 		LocalDate firstDateOfWeek = calendarModel.getFirstDateOfWeek();
@@ -128,7 +121,7 @@ public class CalendarController
 	{
 		VBox eventsVBox = getEventsVBox(node);
 		ObservableList<Node> children = eventsVBox.getChildren();
-		if(children.size() > 1)
+		if(children.size() > 0)
 			children.remove(0, children.size());
 		List<EventModel> events = calendarModel.getEvents(day);
 		for(EventModel event: events)

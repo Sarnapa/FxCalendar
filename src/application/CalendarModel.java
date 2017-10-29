@@ -7,16 +7,16 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CalendarModel 
 {
 	private static final String sourcePath = "EventsDB";
-	private List<EventModel> eventsList; 
+	private List<EventModel> eventsList;
 	private LocalDate firstDateOfWeek = LocalDate.now().minusDays(LocalDate.now().getDayOfWeek().getValue() - 1);
 	private LocalDate today = LocalDate.now();
 	
@@ -75,6 +75,7 @@ public class CalendarModel
 		try
 		{
 			FileOutputStream fileOut = new FileOutputStream(sourcePath);
+			fileOut.flush();
 	        ObjectOutputStream out = new ObjectOutputStream(fileOut);
 	        out.writeObject(eventsList);
 	        out.close();
@@ -92,9 +93,11 @@ public class CalendarModel
 	
 	public List<EventModel> getEvents(LocalDate date)
 	{
-		return eventsList.stream().filter(e -> date.isEqual(e.getDay())).collect(Collectors.toList());
+		List<EventModel> currentEventsList = eventsList.stream().filter(e -> date.isEqual(e.getDay())).collect(Collectors.toList());
+		currentEventsList.sort(Comparator.comparing(EventModel::getStart));
+		return currentEventsList;
 	}
-	
+
 	public void addEvent(EventModel event)
 	{
 		eventsList.add(event);
@@ -104,6 +107,11 @@ public class CalendarModel
 	public void removeEvent(EventModel event)
 	{
 		eventsList.remove(event);
+		writeToSource();
+	}
+	
+	public void modifyEvent()
+	{
 		writeToSource();
 	}
 

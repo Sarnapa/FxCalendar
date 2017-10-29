@@ -3,22 +3,14 @@ package application;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
-import java.util.function.Predicate;
-import java.util.logging.Filter;
-
 import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
-import javafx.scene.input.InputMethodEvent;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -96,35 +88,91 @@ public class EventWindowController
 		stage.close();
 	}
 	
-	public void loadEventData(EventModel event, LocalDate currentDate)
+	public void loadEventData(EventModel event, CalendarController calendarController, LocalDate currentDate)
 	{
 		if(event != null)
 		{
-			eventTitleTextField.setText(event.getTitle());
-			startTimeTextField.setText(event.getStart().toString());
-			endTimeTextField.setText(event.getEnd().toString());
-			removeEventButton.setVisible(true);
-			addEventButton.setText("Modify event");
 			isEventTitleValid = true;
 			isStartTimeValid = true;
 			isEndTimeValid = true;
+			eventTitleTextField.setText(event.getTitle());
+			startTimeTextField.setText(event.getStart().toString());
+			endTimeTextField.setText(event.getEnd().toString());
+			addEventButton.setText("Modify event");
+			addEventButton.setOnAction(null);
+			addEventButton.setOnAction(e -> {
+				modifyEvent(e, calendarController, event);
+				close();
+			});
+			removeEventButton.setVisible(true);
+			removeEventButton.setOnAction(null);
+			removeEventButton.setOnAction(e -> {
+				removeEvent(e, calendarController, event);
+				close();
+			});
 		}
 		else
 		{
-			addEventButton.setText("Add event");
 			isEventTitleValid = false;
 			isStartTimeValid = false;
 			isEndTimeValid = false;
+			addEventButton.setText("Add event");
+			addEventButton.setDisable(true);
+			addEventButton.setOnAction(null);
+			addEventButton.setOnAction(e -> {
+				addEvent(e, calendarController, currentDate);
+				close();
+			});
 		}
 		eventTitleTextField.focusedProperty().addListener(e ->{
 			titleValidation(e);
+			changeAddEventButtonDisable();
 		});
 		startTimeTextField.focusedProperty().addListener(e ->{
 			timeValidation(e, startTimeTextField);
+			changeAddEventButtonDisable();
 		});
 		endTimeTextField.focusedProperty().addListener(e ->{
 			timeValidation(e, endTimeTextField);
+			changeAddEventButtonDisable();
 		});
+	}
+	
+
+	private void addEvent(ActionEvent e, CalendarController controller, LocalDate currentDate)
+	{
+		String title = eventTitleTextField.getText();
+		LocalTime startTime = LocalTime.parse(startTimeTextField.getText());
+		LocalTime endTime = LocalTime.parse(endTimeTextField.getText());
+		EventModel event = new EventModel(currentDate, startTime, endTime, title);
+		calendarModel.addEvent(event);
+		controller.loadView();
+	}
+	
+	private void removeEvent(ActionEvent e, CalendarController controller, EventModel event) 
+	{
+		calendarModel.removeEvent(event);
+		controller.loadView();
+	}
+	
+	private void modifyEvent(ActionEvent e, CalendarController controller, EventModel event) 
+	{
+		String title = eventTitleTextField.getText();
+		LocalTime startTime = LocalTime.parse(startTimeTextField.getText());
+		LocalTime endTime = LocalTime.parse(endTimeTextField.getText());
+		event.setTitle(title);
+		event.setStart(startTime);
+		event.setEnd(endTime);
+		calendarModel.modifyEvent();
+		controller.loadView();
+	}
+	
+	private void changeAddEventButtonDisable()
+	{
+		if(isValid())
+			addEventButton.setDisable(false);
+		else
+			addEventButton.setDisable(true);
 	}
 	
 	private void titleValidation(Observable e)
@@ -192,4 +240,9 @@ public class EventWindowController
 			isEndTimeValid = value;
 	}
 	
+	private boolean isValid()
+	{
+		return isEventTitleValid && isStartTimeValid && isEndTimeValid;
+	}
+		
 }

@@ -40,13 +40,13 @@
          </GridPane.margin>
       </VBox>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
-        <buttons>
-          <Button fx:id="removeEventButton" mnemonicParsing="false" text="Remove event" visible="false" />
-            <Button fx:id="addEventButton" mnemonicParsing="false" text="Add event" />
-        </buttons>
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
+         <buttons>
+            <Button fx:id="removeEventButton" mnemonicParsing="false" text="Remove event" visible="false" />
+            <Button fx:id="addEventButton" mnemonicParsing="false" text="Add event" />
+         </buttons>
       </ButtonBar>
    </children>
    <rowConstraints>
