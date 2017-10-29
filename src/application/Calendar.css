@@ -59,6 +59,10 @@
 	-fx-border-radius: 3px 3px 0px 0px;	
 }
 
+.eventsScrollPaneToday{
+	-fx-background-color: #FFFF66;
+}
+
 .todayCell{
 	-fx-background-color: #FFFF66;
 	-fx-border-color: black;
@@ -81,9 +85,9 @@
 }
 
 .eventLabel{
-	-fx-text-fill: #33FFFF;
+	-fx-text-fill: #009999;
 	-fx-font-size: 12px;
-	-fx-border-color: #33FFFF;
+	-fx-border-color: #009999;
     -fx-border-width: 1px;
 	-fx-border-style: solid;
 	-fx-border-radius: 3px 3px 0px 0px;	

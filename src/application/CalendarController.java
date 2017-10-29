@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.temporal.WeekFields;
 import java.util.List;
 import java.util.Locale;
@@ -11,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -18,6 +20,7 @@ public class CalendarController
 {
 	private CalendarModel calendarModel;
 	private EventWindowController eventWindowController;
+	private boolean isEventWindow = false;
 	
 	@FXML
 	private GridPane leftWeeksPanel;
@@ -30,7 +33,11 @@ public class CalendarController
 	public CalendarController()
 	{
 		calendarModel = new CalendarModel();
-		//calendarModel.addEvent(new EventModel(LocalDate.now(), LocalTime.MIDNIGHT, LocalTime.NOON, "xD"));
+		/*calendarModel.addEvent(new EventModel(LocalDate.now().minusDays(1), LocalTime.MIDNIGHT, LocalTime.NOON, "xD1"));
+		calendarModel.addEvent(new EventModel(LocalDate.now().minusDays(1), LocalTime.MIDNIGHT, LocalTime.NOON, "xD2"));
+		calendarModel.addEvent(new EventModel(LocalDate.now().minusDays(1), LocalTime.MIDNIGHT, LocalTime.NOON, "xD3"));
+		calendarModel.addEvent(new EventModel(LocalDate.now().minusDays(1), LocalTime.MIDNIGHT, LocalTime.NOON, "xD4"));
+		calendarModel.addEvent(new EventModel(LocalDate.now().minusDays(1), LocalTime.MIDNIGHT, LocalTime.NOON, "xDxDxDxDxDxDxDxD"));*/
 	} 
 	
 	@FXML
@@ -54,10 +61,10 @@ public class CalendarController
 		loadView();
 	}
 	
-	public void addDoubleClick(Node node, LocalDate currentDate)
+	public void addDoubleClick(EventModel event, Node node, LocalDate currentDate)
 	{
-		node.setOnMouseClicked(e -> {
-			if(e.getClickCount() == 2)
+		node.setOnMousePressed(e -> {
+			if(e.getClickCount() == 2 && (eventWindowController == null || !eventWindowController.isShowing()))
 			{
 				FXMLLoader EventWindowLoader = new FXMLLoader(getClass().getResource("EventWindow.fxml"));
 				Parent root;
@@ -73,6 +80,8 @@ public class CalendarController
 				eventWindowController = EventWindowLoader.getController();
 				eventWindowController.setCalendarModel(calendarModel);
 				eventWindowController.init(root);
+				eventWindowController.loadEventData(event, currentDate);
+				eventWindowController.showWindow();
 			}
 		});
 	}
@@ -89,8 +98,8 @@ public class CalendarController
 	{
 		for(Node node: calendarGrid.getChildren())
 		{
-			addDoubleClick(node, day);
 			Label label = getCalendarGridCellLabel(node);
+			ScrollPane eventsScrollPane = getEventsScrollPane(node);
 			label.setText(day.getMonth().toString() + " " + day.getDayOfMonth());
 			if(day.isEqual((calendarModel.getToday())))
 			{
@@ -98,6 +107,8 @@ public class CalendarController
 				node.getStyleClass().add("todayCell");
 				label.getStyleClass().clear();
 				label.getStyleClass().add("todayLabel");
+				eventsScrollPane.getStyleClass().clear();
+				eventsScrollPane.getStyleClass().add("eventsScrollPaneToday");
 			}
 			else
 			{
@@ -105,18 +116,20 @@ public class CalendarController
 				node.getStyleClass().add("dayCell");
 				label.getStyleClass().clear();
 				label.getStyleClass().add("date");
+				eventsScrollPane.getStyleClass().clear();
 			}
-			loadEvents(node, day);
+			loadEvents(node, day);	
+			addDoubleClick(null, node, day);
 			day = day.plusDays(1);
 		}
 	}
 	
 	private void loadEvents(Node node, LocalDate day) 
 	{
-		VBox vBox = (VBox)node;
-		ObservableList<Node> children = vBox.getChildren();
+		VBox eventsVBox = getEventsVBox(node);
+		ObservableList<Node> children = eventsVBox.getChildren();
 		if(children.size() > 1)
-			children.remove(1, children.size());
+			children.remove(0, children.size());
 		List<EventModel> events = calendarModel.getEvents(day);
 		for(EventModel event: events)
 		{
@@ -124,13 +137,16 @@ public class CalendarController
 			eventLabel.setMaxWidth(Double.MAX_VALUE);
 			if(day.isEqual((calendarModel.getToday())))
 			{
+				eventLabel.getStyleClass().clear();
 				eventLabel.getStyleClass().add("eventLabelToday");
 			}
 			else
 			{
+				eventLabel.getStyleClass().clear();
 				eventLabel.getStyleClass().add("eventLabel");
 			}
 			eventLabel.setText(event.getStart() + " - " + event.getEnd() + " " + event.getTitle());
+			addDoubleClick(event, eventLabel, day);
 			children.add(eventLabel);
 		}
 	}
@@ -159,6 +175,18 @@ public class CalendarController
 	private Label getCalendarGridCellLabel(Node node)
 	{
 		return (Label)((VBox) node).getChildren().get(0);
+	}
+	
+	private ScrollPane getEventsScrollPane(Node node)
+	{
+		VBox vBox = (VBox) node;
+		return (ScrollPane) vBox.getChildren().get(1);
+	}
+	
+	private VBox getEventsVBox(Node node)
+	{
+		ScrollPane scrollPane = getEventsScrollPane(node);
+		return (VBox) scrollPane.getContent();
 	}
 		
 }
