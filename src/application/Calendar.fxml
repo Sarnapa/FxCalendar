@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="660.0" prefWidth="1250.0" styleClass="root" stylesheets="@Calendar.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CalendarController">
+<BorderPane fx:id="rootPane" prefHeight="660.0" prefWidth="1250.0" styleClass="root" stylesheets="@Calendar.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CalendarController">
    <left>
       <GridPane fx:id="leftWeeksPanel" maxWidth="100.0" minWidth="100.0" prefWidth="100.0">
         <columnConstraints>
@@ -25,19 +25,19 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label">
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" right="2.0" />
                </GridPane.margin></Label>
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.rowIndex="1">
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" right="2.0" />
                </GridPane.margin></Label>
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.rowIndex="2">
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" right="2.0" />
                </GridPane.margin></Label>
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.rowIndex="3">
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" right="2.0" />
                </GridPane.margin></Label>
@@ -56,19 +56,19 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label">
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" />
                </GridPane.margin></Label>
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.rowIndex="1">
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" />
                </GridPane.margin></Label>
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.rowIndex="2">
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" />
                </GridPane.margin></Label>
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.rowIndex="3">
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekHeaderCell" stylesheets="@Calendar.css" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets bottom="2.0" />
                </GridPane.margin></Label>
@@ -76,7 +76,7 @@
       </GridPane>
    </right>
    <center>
-      <GridPane fx:id="calendarGrid" maxWidth="1.7976931348623157E308" minWidth="425.0" prefWidth="425.0" BorderPane.alignment="CENTER">
+      <GridPane fx:id="calendarGrid" maxWidth="1.7976931348623157E308" minWidth="525.0" prefWidth="1050.0" BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -95,7 +95,7 @@
          <children>
             <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -107,7 +107,7 @@
                </GridPane.margin></VBox>
             <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -119,7 +119,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -131,7 +131,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -143,7 +143,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -155,7 +155,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -167,7 +167,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -179,7 +179,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -191,7 +191,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -203,7 +203,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -215,7 +215,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
               <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -227,7 +227,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -239,7 +239,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -251,7 +251,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -263,7 +263,7 @@
                </GridPane.margin></VBox>
 				  <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -275,7 +275,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -287,7 +287,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -299,7 +299,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -311,7 +311,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
               <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -323,7 +323,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -335,7 +335,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -347,7 +347,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -359,7 +359,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -371,7 +371,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -383,7 +383,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -395,7 +395,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -407,7 +407,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -419,7 +419,7 @@
                </GridPane.margin></VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" styleClass="dayCell" stylesheets="@Calendar.css" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" minHeight="20.0" styleClass="date" stylesheets="@Calendar.css" text="Label" />
+                  <Label maxWidth="1.7976931348623157E308" minHeight="25.0" styleClass="date" stylesheets="@Calendar.css" text="Label" VBox.vgrow="ALWAYS" />
                   <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                      <content>
                         <VBox maxWidth="1.7976931348623157E308" />
@@ -433,7 +433,7 @@
       </GridPane>
    </center>
    <top>
-      <HBox maxHeight="30.0" minHeight="30.0" prefHeight="30.0" BorderPane.alignment="CENTER">
+      <HBox maxHeight="30.0" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" BorderPane.alignment="CENTER">
          <children>
             <StackPane maxHeight="30.0" maxWidth="100.0" minHeight="30.0" minWidth="100.0" prefHeight="30.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
@@ -446,7 +446,7 @@
                   <Insets />
                </HBox.margin>
             </StackPane>
-            <GridPane maxHeight="30.0" maxWidth="1.7976931348623157E308" styleClass="calendarHeader" stylesheets="@Calendar.css" HBox.hgrow="ALWAYS">
+            <GridPane maxHeight="30.0" maxWidth="1.7976931348623157E308" minWidth="525.0" prefWidth="1050.0" styleClass="calendarHeader" stylesheets="@Calendar.css" HBox.hgrow="ALWAYS">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -460,31 +460,31 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Monday" textAlignment="CENTER" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Monday" textAlignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets bottom="2.0" right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Tuesday" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Tuesday" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets bottom="2.0" right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Wednesday" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Wednesday" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets bottom="2.0" right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Thursday" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Thursday" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets bottom="2.0" right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Friday" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Friday" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets bottom="2.0" right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Saturday" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Saturday" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets bottom="2.0" right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Sunday" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Sunday" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets bottom="2.0" right="2.0" />
                      </GridPane.margin></Label>
@@ -495,7 +495,7 @@
             </GridPane>
             <StackPane maxHeight="30.0" maxWidth="100.0" minHeight="30.0" minWidth="100.0" prefHeight="30.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button fx:id="nextUpButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#nextWeek" styleClass="weekButton" stylesheets="@Calendar.css" text="Next">
+                  <Button fx:id="nextUpButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="30.0" mnemonicParsing="false" onAction="#nextWeek" prefHeight="30.0" styleClass="weekButton" stylesheets="@Calendar.css" text="Next">
                      <StackPane.margin>
                         <Insets bottom="2.0" />
                      </StackPane.margin></Button>
@@ -508,7 +508,7 @@
       </HBox>
    </top>
    <bottom>
-      <HBox maxHeight="30.0" minHeight="30.0" prefHeight="30.0" BorderPane.alignment="CENTER">
+      <HBox maxHeight="30.0" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" BorderPane.alignment="CENTER">
          <children>
             <StackPane maxHeight="30.0" maxWidth="100.0" minHeight="30.0" minWidth="100.0" prefHeight="30.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
@@ -518,7 +518,7 @@
                      </StackPane.margin></Button>
                </children>
             </StackPane>
-            <GridPane maxHeight="30.0" maxWidth="1.7976931348623157E308" styleClass="calendarHeader" stylesheets="@Calendar.css" HBox.hgrow="ALWAYS">
+            <GridPane maxHeight="30.0" maxWidth="1.7976931348623157E308" minWidth="525.0" prefWidth="1050.0" styleClass="calendarHeader" stylesheets="@Calendar.css" HBox.hgrow="ALWAYS">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -532,40 +532,40 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Monday" textAlignment="CENTER" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Monday" textAlignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Tuesday" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Tuesday" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Wednesday" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Wednesday" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Thursday" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Thursday" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <padding>
                         <Insets right="2.0" />
                      </padding>
                      <GridPane.margin>
                         <Insets right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Friday" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Friday" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <padding>
                         <Insets right="2.0" />
                      </padding>
                      <GridPane.margin>
                         <Insets right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Saturday" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Saturday" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <padding>
                         <Insets right="2.0" />
                      </padding>
                      <GridPane.margin>
                         <Insets right="2.0" />
                      </GridPane.margin></Label>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Sunday" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="weekDayHeaderCell" stylesheets="@Calendar.css" text="Sunday" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <padding>
                         <Insets right="2.0" />
                      </padding>

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.temporal.WeekFields;
 import java.util.List;
 import java.util.Locale;
+import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +13,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 public class CalendarController 
@@ -21,12 +24,13 @@ public class CalendarController
 	private EventWindowController eventWindowController;
 	
 	@FXML
+	private BorderPane rootPane;
+	@FXML
 	private GridPane leftWeeksPanel;
 	@FXML
 	private GridPane rightWeeksPanel;
 	@FXML
 	private GridPane calendarGrid;
-	
 	
 	public CalendarController()
 	{
@@ -114,7 +118,15 @@ public class CalendarController
 			loadEvents(node, day);	
 			addDoubleClick(null, node, day);
 			day = day.plusDays(1);
+			label.widthProperty().addListener(event -> changeFontSize(label, 9));
+			label.heightProperty().addListener(event -> changeFontSize(label, 9));
 		}
+	}
+	
+	private void changeFontSize(Label label, double x)
+	{
+		Double newFontSizeDouble = Math.hypot(label.getWidth(), label.getHeight())/x;
+		label.styleProperty().bind(Bindings.concat("-fx-font-size: ", newFontSizeDouble.toString(), ";"));
 	}
 	
 	private void loadEvents(Node node, LocalDate day) 
@@ -127,7 +139,9 @@ public class CalendarController
 		for(EventModel event: events)
 		{
 			Label eventLabel = new Label();
+			eventLabel.setMinHeight(25);
 			eventLabel.setMaxWidth(Double.MAX_VALUE);
+			VBox.setVgrow(eventLabel, Priority.ALWAYS);
 			if(day.isEqual((calendarModel.getToday())))
 			{
 				eventLabel.getStyleClass().clear();
@@ -141,6 +155,8 @@ public class CalendarController
 			eventLabel.setText(event.getStart() + " - " + event.getEnd() + " " + event.getTitle());
 			addDoubleClick(event, eventLabel, day);
 			children.add(eventLabel);
+			eventLabel.widthProperty().addListener(e -> changeFontSize(eventLabel, 11));
+			eventLabel.heightProperty().addListener(e -> changeFontSize(eventLabel, 11));
 		}
 	}
 

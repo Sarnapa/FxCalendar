@@ -22,8 +22,8 @@ public class Main extends Application
 					getResource("Calendar.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Calendar");
-			primaryStage.setMinWidth(625);
-			primaryStage.setMinHeight(360);
+			primaryStage.setMinWidth(725);
+			primaryStage.setMinHeight(560);
 			primaryStage.show();
 		} 
 		catch(Exception e) 
